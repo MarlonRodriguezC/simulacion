@@ -5,7 +5,7 @@
 ### respuesta
 
 para esto, voy a hacer el proyecto en houdini, primero puse un simple plano, luego un scatter, el cual vuelve la superficie en diferentes puntos distribuidos sobre la malla, despues puse un
-attributewrangle, el cual funciona como un nodo script  y utilizo el siguiente codigo 
+attribwrangle, el cual funciona como un nodo script  y utilizo el siguiente codigo 
 
 ### respuesta
 ```c
