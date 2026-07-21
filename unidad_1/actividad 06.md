@@ -1,9 +1,8 @@
 # Actividad 06
 
 ## Crea un nuevo sketch en p5.js donde los visualices el Ruido de Perlin.
-## Explica por qué lo visualizaste de esa manera y qué resultados esperabas obtener.
 
-para esto, voy a hacer el proyecto en houdini, primero puse un simple plano, luego un attribwrangle, para este caso ya houdini tiene un comando establecido para crear noise, y hay un comando aun
+Para esto, voy a hacer el proyecto en houdini, primero puse un simple plano, luego un attribwrangle, para este caso ya houdini tiene un comando establecido para crear noise, y hay un comando aun
 mas parecido xnoise (literalmente la documentacion de houdini dice que es mas cercana aun al ruido de perlin), aqui pondre el codigo y intentare explicar algunos parametros, ya que solo se veran
 en la interface del progrmaa 
 
@@ -25,3 +24,8 @@ Puede que hayas notado en los anteriores codigo que utilizo el comando chf o chv
 o controlarlo dentro de cierto rango predeterminado, para esto, cree 3 comandos, scale, shift, height. Scale hara que que tan cerca estaran las montañas de perlin con las otras y luego un shift
 el cual dira que forma tendra el ruido de perlin, pero como en este caso esta siendo sumado con el tiempo, la verdad es que puedes ponerle cualquier numero, pero si quieres que este quieto en un
 estado especifico solo quitale el @Time, por ultimo esta height, el cual es la altura de las montañas, estas pueden hacerse mas hondas y altas, o mas pegadas al suelo
+
+
+## Explica por qué lo visualizaste de esa manera y qué resultados esperabas obtener.
+
+Esperaba  ver esta simulacion, ya de por si houdini me ahorro mucho trabajo en esta ya que toma los calculos del ruido de perlin y los hace por su cuenta, aun asi creo que fue el tema que mas me gusto y recomandaria totalmente ver el siguiente video para entender de mejor manera el ruido de perlin https://www.youtube.com/watch?v=9B89kwHvTN4&t=42s
