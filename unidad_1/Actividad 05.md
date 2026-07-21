@@ -2,7 +2,6 @@
 
 ## Crea un nuevo sketch en p5.js donde modifiques uno de los ejemplos anteriores y adiciones de Lévy flight.
 
-## Explica por qué usaste esta técnica y qué resultados esperabas obtener.
 
 
 ### respuesta
@@ -132,6 +131,13 @@ vector direccion = set(dir_x, 0, dir_z);
 Esta version tiene algunas diferencias mas notables, aunque la direccion es la misma, el tema del paso final cambia totalmente, aqui por medio de la IA le pedi que me diese una formula exacta
 para lograr el vuelo de levy, principalmente el paso minimo se multiplica con un pow, un pow "es un numero elevado a la X", en este caso se crea un numero r entre 0.0 y 0.9 y luego lo restaremos
 a un 1.0 y este numero sera llevado a a la -1.0 dividido 1.5, el cual nos dara un resultado distinto cada vez y tomara grandes pasos cada tanto
+
+
+## Explica por qué usaste esta técnica y qué resultados esperabas obtener.
+
+Use esta tecnica ya que fue una forma facil de simplificar las cosas primero y luego simplemente tallarlo mas, y si salio como esperaba, aunque obviamente si queria usar una formula mas precisa 
+al vuelo de levy hubiese tenido que suar formuals mas elaboradas como la msotrada en el cuarto codigo, pero todo salio como esperaba, un punto moviendose en el plano y cada tanto dando un 
+salto al azar
 
 
 
