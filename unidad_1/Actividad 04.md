@@ -23,6 +23,6 @@ vector centro = chv("centro_pos");
 @P.z = sample_normal(centro.z, r_dispersion, seed2);
 
 
-
+```
 Este codigo crea dos semillas, las cuales se repartiran en el eje X o Z, un vector de posicion (que literalmente solo dice en que posicion poner el plano, simplemente lo puse por 
 decoracion) y un un vector de centro, y una dispersion, esta puede hacer que lso puntos se expandan mas o se junten mas, ya depende en que posicion de camara estes si quieres verlo mas o menos
