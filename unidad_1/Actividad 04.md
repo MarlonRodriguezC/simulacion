@@ -4,7 +4,7 @@
 
 ### respuesta
 
-para esto, voy a hacer el proyecto en houdini, primero puse un simple plano, luego un scatter, el cual vuelve la superficie en diferentes puntos distribuidos sobre la maya, despues puse un
+para esto, voy a hacer el proyecto en houdini, primero puse un simple plano, luego un scatter, el cual vuelve la superficie en diferentes puntos distribuidos sobre la malla, despues puse un
 attributewrangle, el cual funciona como un nodo script  y utilizo el siguiente codigo 
 
 ### respuesta
