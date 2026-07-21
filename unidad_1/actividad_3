@@ -1,14 +1,16 @@
-# Título Principal Grande
+```html
+<h1>Título Principal Grande</h1>
 
-## Subtítulo Mediano
+<h2>Subtítulo Mediano</h2>
 
-### Título Pequeño
+<h3>Título Pequeño</h3>
 
-Este es un párrafo normal. Aquí explico lo que aprendí hoy en mi sesión de VEX.
+<p>Este es un párrafo normal donde explico lo que aprendí hoy en mi sesión de VEX.</p>
 
-* Primera idea o paso
-* Segunda idea o paso
+<ul>
+  <li>Primera idea o paso</li>
+  <li>Segunda idea o paso</li>
+</ul>
 
-```c
-// Código VEX de ejemplo
-@P.y += sin(@Time);
+<pre><code>// Código VEX de ejemplo
+@P.y += sin(@Time);</code></pre>
