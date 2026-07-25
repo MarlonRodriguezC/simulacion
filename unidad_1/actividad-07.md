@@ -100,7 +100,7 @@ La propuesta plantea una caminata generativa continua donde el visitante no cont
   
   
   
---
+
 ## Decisiones tomadas y alternativas descartadas
   A la hora de desarrollar el proyecto se descartaron varias ideas:
 
@@ -108,7 +108,7 @@ La propuesta plantea una caminata generativa continua donde el visitante no cont
 - Terrenos mas grandes y variacion de color: Se podian agregar mas variaciones visuales, mapas de color complejos o ampliar el tamaño del plano, pero se decidio parar en este punto de la simulacion ya que la pieza cumple con el objetivo y si le seguia sumando cosas el proyecto no terminaria nunca.
 - Transiciones entre escenas: En lugar de dividir la experiencia en escenarios separados, se decidio mantener un solo lienzo continuo donde las variaciones ocurrieran en tiempo real y hacerlo lo mas interactivo posible
 
---
+
 
 ## Dificultades y soluciones
 
@@ -121,10 +121,12 @@ La propuesta plantea una caminata generativa continua donde el visitante no cont
 
 ## 7. Autoevaluación
 
+## Autoevaluación
+
 | Criterio | Cumplo | No cumplo | Evidencia en la bitácora |
 | :--- | :---: | :---: | :--- |
-| **Encargo completo:** interpreto los cinco momentos dentro de un mismo sistema visual. | **[X]** | [ ] | Sección 1: Traducción conceptual de los 5 momentos en un mismo lienzo 9:16. |
-| **Simulación con intención:** utilizo al menos tres conceptos de la unidad para comunicar las ideas del encargo. | **[X]** | [ ] | Sección 1 y 2: Uso de *Caminata Aleatoria*, *Ruido de Perlin*, *Distribución Normal* y *Lévy Flight*. |
-| **Interacción significativa:** la interacción modifica el comportamiento o las probabilidades del sistema, que también funciona sin intervención. | **[X]** | [ ] | Sección 1 (Momento 5) y Sección 3: La posición del cursor altera la escala del ruido y la varianza de la distribución. |
-| **Prototipo funcional:** la experiencia puede ejecutarse y recorrerse completa sin errores que impidan comprenderla. | **[X]** | [ ] | Enlace funcional a p5.js y ejecución probada a pantalla completa en formato 9:16. |
-| **Proceso documentado:** la bitácora evidencia avances, decisiones, dificultades, soluciones, uso de IA y enlace al prototipo. | **[X]** | [ ] | Secciones 2, 3, 4, 6 y el historial de commits dentro de este repositorio en GitHub. |
+| **Encargo completo:** interpreto los cinco momentos dentro de un mismo sistema visual. | **[X]** | [ ] | Seccion Propuesta y Procedimiento: Se evidencia la simulacion continua del agente adaptandose en tiempo real al terreno dinamico en un solo lienzo. |
+| **Simulación con intención:** utilizo al menos tres conceptos de la unidad para comunicar las ideas del encargo. | **[X]** | [ ] | Tercer paso del procedimiento: Uso explicito de *Ruido de Perlin (xnoise)*, *Distribución Uniforme (rand)* y *Distribución No Uniforme (pow)* en VEX. |
+| **Interacción significativa:** la interacción modifica el comportamiento o las probabilidades del sistema, que también funciona sin intervención. | **[X]** | [ ] | Tercer paso del procedimiento: Control mediante parametros manuales (chf) y selector de modo aleatorio (chi("modo_random")) para cambiar la velocidad y el terreno. |
+| **Prototipo funcional:** la experiencia puede ejecutarse y recorrerse completa sin errores que impidan comprenderla. | **[X]** | [ ] | Segundo paso del procedimiento y captura final del nodo `null`: Muestra la red de nodos conectada con agentterrainadaptation y footlocking funcionando sin errores de colision. |
+| **Proceso documentado:** la bitácora evidencia avances, decisiones, dificultades, soluciones, uso de IA y enlace al prototipo. | **[X]** | [ ] | Documentacion completa con capturas paso a paso (actividad-07-rigging.png a actividad-07-null.png), explicacion del codigo VEX, y secciones de Dificultades y Decisiones descartadas. |
