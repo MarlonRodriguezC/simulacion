@@ -101,31 +101,25 @@ La propuesta plantea una caminata generativa continua donde el visitante no cont
   
   
 --
+## Decisiones tomadas y alternativas descartadas
+  A la hora de desarrollar el proyecto se descartaron varias ideas:
 
+- Multitudes y agentes extra: Se penso en meter una multitud completa usando el sistema de crowds de Houdini, pero se descarto para mantener el foco en la caminata y la adaptacion del agente principal.
+- Terrenos mas grandes y variacion de color: Se podian agregar mas variaciones visuales, mapas de color complejos o ampliar el tamaño del plano, pero se decidio parar en este punto de la simulacion ya que la pieza cumple con el objetivo y si le seguia sumando cosas el proyecto no terminaria nunca.
+- Transiciones entre escenas: En lugar de dividir la experiencia en escenarios separados, se decidio mantener un solo lienzo continuo donde las variaciones ocurrieran en tiempo real y hacerlo lo mas interactivo posible
 
-## ⚠️ 4. Dificultades y Soluciones
+--
 
-* **Dificultad:** Los saltos largos (*Lévy Flight*) sacaban las partículas del lienzo 9:16 de forma irrecuperable.
-* **Solución:** Se implementó una regla de bordes "toroidales" (wrap-around) y una fuerza magnética leve basada en distribución normal que atrae suavemente la caminata hacia el centro cuando se aleja demasiado.
+## Dificultades y soluciones
 
----
+- Entender los tipos de ruido y aleatoriedad al inicio: Lo mas dificil del proceso fue al comienzo cuando estaba creando el ruido de Perlin. Me tomo tiempo entender la diferencia entre los comandos porque notaba que habia varios tipos de noise (como xnoise) y tambien distintas formas de usar rand para controlar distribuciones uniformes o no uniformes. Una vez que entendi como mapear y escalar los valores en VEX, la estructura del terreno salio fluida.
 
-## 🖼️ 5. Evidencias Visuales
-
-![Captura de pantalla de la experiencia en ejecución](/assets/unidad-1/actividad-07/actividad-07-rigging.png)
-
-> **Nota:** La animación muestra cómo la presencia del visitante rompe el equilibrio del ruido de Perlin generando trayectorias excepcionales hacia los bordes.
-
----
-
-## 🤖 6. Uso de IA Generativa y Cambios Realizados
-
-* **Propuesta inicial de la IA:** La IA sugirió una estructura de código dividida en un *switch/case* con 5 estados independientes para los 5 momentos.
-* **Cambio y criterio propio:** Rechacé la división por estados independientes porque el encargo exigía una *pieza única coherente*. En su lugar, utilicé la IA únicamente para depurar la fórmula matemática del cálculo gaussiano con `randomGaussian()` y combiné los 5 comportamientos en un solo vector de fuerzas sumadas.
+  
+- Manejo de la herramienta: Por el contrario, la parte de hacer que el personaje caminara sobre el terreno y la configuracion de los nodos de simulacion no fue tan compleja. Mas que programar de cero, consistio en saber elegir las opciones correctas en los nodos de Agent y ajustar los canales de colision para que la caminata se adaptara bien a las montañas
 
 ---
 
-## 📝 7. Autoevaluación
+## 7. Autoevaluación
 
 | Criterio | Cumplo | No cumplo | Evidencia en la bitácora |
 | :--- | :---: | :---: | :--- |
@@ -134,11 +128,3 @@ La propuesta plantea una caminata generativa continua donde el visitante no cont
 | **Interacción significativa:** la interacción modifica el comportamiento o las probabilidades del sistema, que también funciona sin intervención. | **[X]** | [ ] | Sección 1 (Momento 5) y Sección 3: La posición del cursor altera la escala del ruido y la varianza de la distribución. |
 | **Prototipo funcional:** la experiencia puede ejecutarse y recorrerse completa sin errores que impidan comprenderla. | **[X]** | [ ] | Enlace funcional a p5.js y ejecución probada a pantalla completa en formato 9:16. |
 | **Proceso documentado:** la bitácora evidencia avances, decisiones, dificultades, soluciones, uso de IA y enlace al prototipo. | **[X]** | [ ] | Secciones 2, 3, 4, 6 y el historial de commits dentro de este repositorio en GitHub. |
-
----
-
-## 🗣️ Guión de Apoyo para la Presentación Oral (Puntos Clave)
-
-1. **Intención:** *"Mi propuesta traduce la incertidumbre no como caos, sino como una estructura de probabilidades que el espectador deforma con su presencia."*
-2. **Regla de simulación:** *"Utilizo el Ruido de Perlin para la 'Tendencia' y saltos de Lévy para la 'Excepción', asegurando que el sistema siempre descubra territorio nuevo incluso si nadie lo toca."*
-3. **Evolución:** *"Comencé con un random walk tradicional que era indescifrable y fui superponiendo distribuciones de probabilidad para darle coherencia visual."*
