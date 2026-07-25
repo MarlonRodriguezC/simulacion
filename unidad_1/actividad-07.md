@@ -42,6 +42,62 @@ La propuesta plantea una caminata generativa continua donde el visitante no cont
   Vemos que los pies estan mas abajo de lo normal, esto se debe a que tenemos que ajutar los joints de los pies del modelo, por defecto estaran en los tobillos asi que tendremos que acomodarlos en el talon
 
   ![Captura de pantalla de la experiencia en ejecución](/assets/unidad-1/actividad-07/actividad-07-acomodacion.png)
+
+- Tercer paso: Se crearon estos floats iniciales para definir el comportamiento del terreno, ya que la idea es tener una version donde un eje sea aleatorio y el otro no, y que uno use una distribucion uniforme mientras el otro no lo es. Tambien se dejaron listas las variables de velocidad para que el usuario pueda alternar libremente entre una velocidad neutra y una mucho mas rapida de lo habitual:
+  
+  ```c
+  float shift_x_manual = chf("shift_X");
+  float shift_z_manual = chf("shift_Z");
+
+  float vel_x = chf("velocidad_X");
+  float vel_z = chf("velocidad_Z");
+
+  float u_rand_x = rand(100 + @ptnum);
+  float shift_x_rand_uniforme = fit01(u_rand_x, -0.1, 0.1);
+
+  float nu_rand_z = pow(rand(200 + @ptnum), 3.0); 
+  float shift_z_rand_no_uniforme = fit01(nu_rand_z, -0.1, 0.1);
+
+  int es_random = chi("modo_random"); 
+ 
+  float final_shift_x;
+  float final_shift_z;
+  ```
+
+  Despues se usaron condicionales para que el programa pueda identificar automaticamente que tipo de modo se esta ejecutando en tiempo real. Si el parametro no esta en el modo 1, el codigo asume que se esta trabajando en modo manual, pero si esta activado en el modo 1, pasa a usar las variables del modo aleatorio:
+  ```c
+  if (es_random == 1) 
+  {
+    final_shift_x = shift_x_rand_uniforme;
+    final_shift_z = shift_z_rand_no_uniforme;
+  } 
+  else
+  {
+    final_shift_x = shift_x_manual;
+    final_shift_z = shift_z_manual;
+  }
+  ```
+  Por ultimo, se calcula el vector offset agrupando los desplazamientos de X y Z junto con la velocidad multiplicada por el tiempo (@Time). Este vector final es el que se le pasa a la funcion xnoise mezclado con la posicion @P para deformar la altura en @P.y
+
+  ```c
+  vector offset = set( 
+    final_shift_x + (@Time * vel_x), 
+    chf("shift") + (@Time / 2.0),    
+    final_shift_z + (@Time * vel_z)
+  );
+
+  float val = xnoise(@P * chf("scale") + offset);
+
+  @P.y = val * chf("height");
+
+  f@noiseval = val;
+  ```
+  por ultimo conectamos todo a un merge para poder ver las simulaciones y para dar por sentado el proyecto el nodo merge se conectara a un null
+
+  ![Captura de pantalla de la experiencia en ejecución](/assets/unidad-1/actividad-07/actividad-07-null.png)
+
+  
+  
   
   
 --
