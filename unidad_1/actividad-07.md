@@ -24,17 +24,24 @@ La propuesta plantea una caminata generativa continua donde el visitante no cont
    ![Captura de pantalla de la experiencia en ejecución](/assets/unidad-1/actividad-07/actividad-07-rigging.png)
    
 - Segundo paso: exportaremos el modelo en el nodo "agent 1" y su animacion en "agentclip1", luego los conectaremos a agentprep1, el cual mas adelante nos ayudara a hacer que nuestra animacion se vea fluida y los pasos colisionen bien con el teerreno, por ultimo conectaremos agentterrainadaptation1, el cual hara todo el trabajo de que nuestro personaje logre caminar entre el terreno montañoso
-   [Captura de pantalla de la experiencia en ejecución](/assets/unidad-1/actividad-07/actividad-07-agente-composicion)
-  Lastimosamente nuestro personaje se sentira como si si se estuviese resbalando mas que como si estuviese caminando por encima del terreno
-  [Captura de pantalla de la experiencia en ejecución](/assets/unidad-1/actividad-07/actividad-07-personaje-error)
-  Para esto, se usara el agentprep1, el cual le diremos a houdini cuales son los huesos que pertecen, a la pierna, la rodilla y el pie y generar un foot locking, una red de canales que puede avisar a houdini cuando los pies estan colisionando en el suelo y cuando no, de paso al crer el footlocking se creara este nodo, el cual no se tendra que conectar a ningun lado, pero si se debera conservar en el archivo, ya que como ya dije son los canales que mejoraran nuestra caminata
+
+  [Captura de pantalla de la experiencia en ejecución](/assets/unidad-1/actividad-07/actividad-07-agente-composicion.png)
+   
+  Lastimosamente nuestro personaje se sentira como si si se estuviese resbalando mas que como si estuviese caminando por encima del    terreno
+
+   [Captura de pantalla de la experiencia en ejecución](/assets/unidad-1/actividad-07/actividad-07-personaje-error.png)
+
+  Para esto, se usara el agentprep1, el cual le diremos a houdini cuales son los huesos que pertecen, a la pierna, la rodilla y el     pie y generar un foot locking, una red de canales que puede avisar a houdini cuando los pies estan colisionando en el suelo y   cuando no, de paso al crer el footlocking se creara este nodo, el cual no se tendra que conectar a ningun lado, pero si se debera conservar en el archivo, ya que como ya dije son los canales que mejoraran nuestra caminata
   
-  [Captura de pantalla de la experiencia en ejecución](/assets/unidad-1/actividad-07/actividad-07-foot-plant-channels)
-  apenas este aparesca en en grid, nuestro modelo tomara esta forma
+  [Captura de pantalla de la experiencia en ejecución](/assets/unidad-1/actividad-07/actividad-07-foot-plant-channels.png)
+
+  Apenas este aparesca en en grid, nuestro modelo tomara esta forma
   
-  [Captura de pantalla de la experiencia en ejecución](/assets/unidad-1/actividad-07/actividad-07-piernas-error)
-  vemos que los pies estan mas abajo de lo normal, esto se debe a que tenemos que ajutar los joints de los pies del modelo, por defecto estaran en los tobillos asi que tendremos que acomodarlos en el talon
-  [Captura de pantalla de la experiencia en ejecución](/assets/unidad-1/actividad-07/actividad-07-acomodacion)
+  [Captura de pantalla de la experiencia en ejecución](/assets/unidad-1/actividad-07/actividad-07-piernas-error.png)
+
+  Vemos que los pies estan mas abajo de lo normal, esto se debe a que tenemos que ajutar los joints de los pies del modelo, por defecto estaran en los tobillos asi que tendremos que acomodarlos en el talon
+
+  [Captura de pantalla de la experiencia en ejecución](/assets/unidad-1/actividad-07/actividad-07-acomodacion.png)
   
   
 --
