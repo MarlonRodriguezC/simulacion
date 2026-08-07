@@ -14,9 +14,11 @@ Las particulas crearan una especie de planeta tierra en el cual viviran hasta ci
 
 ---
 ### Nodos necesarios para el proyecto
-![Captura de pantalla de la experiencia en ejecución](assets/unidad-2/Nodos-1-a5-u2.png)
+
+![nodos](assets/unidad-2/Nodos-1-a5-u2.png)
 
 ---
+
 
 ### Matriz de Relaciones 4x4 
 Valores positivos representan atracción y valores negativos repulsión. Las filas indican la partícula que reacciona y las columnas el vecino que ejerce la fuerza).
