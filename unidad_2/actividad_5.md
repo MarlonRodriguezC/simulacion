@@ -14,8 +14,13 @@ Las particulas crearan una especie de planeta tierra en el cual viviran hasta ci
 
 ---
 ### Nodos necesarios para el proyecto
+Ok, empezamos con un switch el cual sera el que elija cual figura tomar encuenta, AUNQUE se pueden unir las figuras usanod  otro nodo, para el ejercicio solo tome una sola figura por simulacion
+principalmente queria ver que tal se comporta la simulacion con un objeto 3d, despues de esto va a p asar por un scatter el cual se encargara de hacer puntos por toda la figura y despues un wwrangle, este solo se encargara de darle un color distinto a cada punto con la linea de codigo 
+```c
 
-![nodos](assets/unidad-2/Nodos-1-a5-u2.png)
+```
+![nodos](../assets/unidad-2/Nodos-1-a5-u2.png)
+
 
 ---
 
