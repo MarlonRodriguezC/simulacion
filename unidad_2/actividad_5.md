@@ -14,12 +14,20 @@ Las particulas crearan una especie de planeta tierra en el cual viviran hasta ci
 
 ---
 ### Nodos necesarios para el proyecto
-Ok, empezamos con un switch el cual sera el que elija cual figura tomar encuenta, AUNQUE se pueden unir las figuras usanod  otro nodo, para el ejercicio solo tome una sola figura por simulacion
+Ok, empezamos con un switch el cual sera el que elija cual figura tomar encuenta, AUNQUE se pueden unir las figuras usando  otro nodo, para el ejercicio solo tome una sola figura por simulacion
+![nodos](../assets/unidad-2/Nodos-1-a5-u2.png)
+
 principalmente queria ver que tal se comporta la simulacion con un objeto 3d, despues de esto va a p asar por un scatter el cual se encargara de hacer puntos por toda la figura y despues un wwrangle, este solo se encargara de darle un color distinto a cada punto con la linea de codigo 
 ```c
-
+i@type = int(rint(rand(@ptnum)*3));
 ```
-![nodos](../assets/unidad-2/Nodos-1-a5-u2.png)
+Despues solo estara el color, el cual con ayuda de la linea del codigo la podremos traer en el nodo color como un atributo y luego con el nodo visualize volveremos los puntos en esferas usando la ocpion points as sheres, esto con el proposito que se use pocos recursos en el sistema, asi que vamos a ver una visualizacion, no un calculo completo por ultimo vamos con un popnet, el cual sera el corazon de nuestra simulacion 
+
+![nodos](../assets/unidad-2/Nodos-2-a5-u2.png)
+
+aqui por defecto ya tendremos algunso nodos por defecto, como el popsovler  o el pop sourve o el po object junto al wire pops, los unicos que crearemos es un wrangle y un popdrag, el pop drag adelanto que su principal objetivo sera dar fuerza de friccion, aqui dejo un ejemplo de como se veria nuestra simulacion sin este nodo
+
+[Ver simulación en YouTube](https://www.youtube.com/watch?v=NYGN2Kl1xW0)
 
 
 ---
