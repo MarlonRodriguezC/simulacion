@@ -5,7 +5,7 @@
 
 ---
 
-## 1. Intención y Contradicción
+##  Intención y Contradicción
 
 Quiero explorar la tensión entre la necesidad   de los recursos  naturales  y el sentimiento de exploracion
 
@@ -33,7 +33,7 @@ si lo se, se desbanece como galleta, bueno igualmente sigamos con el nodo wrangl
 
 ---
 
-## 2. Código del Sistema (VEX)
+##  Código del Sistema (VEX)
 
 Implementación del comportamiento en un **POP Wrangle** evaluando la matriz de interacción $4\times4$, la inversión por tiempo y el rango de fuerza suavizado por curva:
 
@@ -92,7 +92,7 @@ v@force += aceleracion;
 
 Si estan a una distancia normal (osea entre mindist y maxdist), usamos el else. Mapeamos esa distancia de 0 a 1 en ramppos para pasársela a la curva de la rampa chramp('Shape'), y la multiplicamos por la matriz usando `getcomp(parms, i@type, ntype)`. Asi es como el programa sabe si mi tipo de particula se atrae o se repele con la del vecino segun el valor de la tabla 
 
-Toda esa direccion calculada se la vamos sumando a la variable de aceleracion en cada vuelta del ciclo. Al salir del `foreach`, simplemente le sumamos la aceleracion acumulada a la fuerza global con v@force += aceleracion para que el POP Solver mueva las partículas en la simulacion
+Toda esa direccion calculada se la vamos sumando a la variable de aceleracion en cada vuelta del ciclo. Al salir del foreach, simplemente le sumamos la aceleracion acumulada a la fuerza global con v@force += aceleracion para que el POP Solver mueva las partículas en la simulacion
 
 
 
@@ -116,63 +116,25 @@ Valores positivos representan atracción y valores negativos repulsión. Las fil
 * **Fricción :** ` $\approx 0.08$
 * **Fuerza Escalar:** `chf('Force_Scale')`  $\approx 1$
 * **Tiempo de Cambio:** `chf('Switch_Tiempo')` $\ 1 \text{s}$
-* **Distribución Inicial:** Concentrada en una esfera densa (representando el Planeta Tierra).
 
 
 ---
 ### Cambios y dificultades del proyecto
-Este proyecto fue algo retador para mi, ya que aunque existen 
-
-### Parámetros Globales
-* **Distancia de Interacción ($R_{max}$):** `[Valor]`
-* **Radio de Repulsión Mínima ($R_{min}$):** `[Valor]`
-* **Fricción / Amortiguación:** `[Valor]`
-* **Velocidad Máxima:** `[Valor]`
-* **Distribución Inicial:** `[Ej: Aleatoria en el lienzo / Concentrada en el centro]`
-
+Este proyecto fue algo retador para mi, ya que aunque logre hacer el particle life en 3d, el resultado que tenia planeado tuve que hacer diferentes versiones y ajustar los numeros de la matrix a masomenos lo que queria que ocurriese.
+Algo que creo que se deberia mejorar es el uso de recursos del programa, sigo creyendo que estoy consumiendo mas de los necesarios  con el codigo ya que por primera vez si vi a houdini esperanod como 2 o 3 minutos en cargar el proyecto en si 
 ---
 
-## 3. Justificación de Decisiones de Diseño
+##  Justificación de Decisiones de Diseño
 
 * Seleccioné **[Parámetro / Cantidad / Tipo]** porque quiero hacer perceptible **[Intención visual/física]**. Espero que produzca **[Resultado directo en pantalla]**.
 * Seleccioné la relación asimétrica **[Tipo A vs Tipo B]** porque quiero hacer perceptible **[la desigualdad o tensión]**. Espero que produzca **[un flujo constante sin llegar nunca al equilibrio]**.
 * Seleccioné un nivel de fricción de **[Valor]** porque quiero hacer perceptible **[la inercia / la fluidez]**. Espero que produzca **[agrupaciones orgánicas en lugar de explosiones erráticas]**.
 
----
 
-## 4. Registro de Pruebas y Descartes
-
-### Ajustes y Experimentos
-1. **Prueba 1 (Inestabilidad):** Inicialmente probé con una velocidad máxima muy alta (`[Valor]`).  
-   * *Resultado:* Las partículas salían disparadas y rompían las estructuras.  
-   * *Ajuste:* Se redujo la velocidad máxima a `[Nuevo Valor]` e incrementé la fricción.
-2. **Prueba 2 (Equilibrio estático):** Con una matriz simétrica, el sistema se congelaba en patrones estáticos rápidamente.  
-   * *Ajuste:* Introduje la asimetría entre **[Tipo B]** y **[Tipo C]** para romper la cristalización.
-
-### Descartes
-* **Descarte 1:** Se descartó el uso de formas complejas o sprites para las partículas; se mantuvieron como **[puntos / círculos simples]** para que la identidad de la pieza dependa 100% de la dinámica de movimiento y no del aspecto gráfico.
-* **Descarte 2:** Se descartó agregar una fuerza de gravedad global porque opacaba las fuerzas interindividuales de la matriz.
 
 ---
 
-## 5. Manifestaciones del Sistema (Variaciones)
-
-![Manifestación 1 - Semilla A](/assets/unidad-2/actividad-05/semilla-01.png)  
-*Semilla `[#]`:* Estructura en fase inicial, mostrando **[comportamiento observable]**.
-
-![Manifestación 2 - Semilla B](/assets/unidad-2/actividad-05/semilla-02.png)  
-*Semilla `[#]`:* Comportamiento emergente tras `[N]` frames, observándose **[patrón, cluster o bucle]**.
-
----
-
-## 6. Sustentación de lo Diseñado vs. lo Emergente
-
-* **Lo Diseñado (Reglas fijas):** Las distancias de corte, la matriz de atracción/repulsión asimétrica y la fricción del entorno.
-* **Lo Emergente (Resultado no programado explícitamente):** La formación de **[ej: espirales, persecuciones en cadena, membranóforos o vacíos circulares]** que surgen espontáneamente de la suma de interacciones locales.
-
----
-
-## 7. Autoevaluación Sustentada
+## Autoevaluación Sustentada
 
 | Criterio | Peso | Valoración (%) | Aporte | Evidencia / Sustento |
 | :--- | :---: | :---: | :---: | :--- |
