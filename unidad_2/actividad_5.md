@@ -29,27 +29,7 @@ aqui por defecto ya tendremos algunso nodos por defecto, como el popsovler  o el
 
 [Ver simulación en YouTube](https://www.youtube.com/watch?v=NYGN2Kl1xW0)
 
-
----
-
-
-### Matriz de Relaciones 4x4 
-Valores positivos representan atracción y valores negativos repulsión. Las filas indican la partícula que reacciona y las columnas el vecino que ejerce la fuerza).
-
-| Desde \ Hacia | Tipo 0 (Amarillo) | Tipo 1 (Verde) | Tipo 2 (Azul) | Tipo 3 (Rojo) |
-| :--- | :---: | :---: | :---: | :---: |
-| **Tipo 0 (Amarillo)** | `4.0` | `2.0` | `0.0` | `0.0` |
-| **Tipo 1 (Verde)** | `6.0` | `1.0` | `0.0` | `-3.0` |
-| **Tipo 2 (Azul)** | `1.0` | `0.0` | `2.0` | `-6.0` |
-| **Tipo 3 (Rojo)** | `1.0` | `0.0` | `-6.0` | `2.0` |
-
-### Parámetros Globales
-* **Distancia de Interacción ($R_{max}$):** `chf('Maximum_Distance')` $\approx 0.711$
-* **Radio de Repulsión Mínima ($R_{min}$):** `chf('Minimum_Distance')` $\approx 0.16$
-* **Fricción :** ` $\approx 0.08$
-* **Fuerza Escalar:** `chf('Force_Scale')`  $\approx 1$
-* **Tiempo de Cambio:** `chf('Switch_Tiempo')` $\ 1 \text{s}$
-* **Distribución Inicial:** Concentrada en una esfera densa (representando el Planeta Tierra).
+si lo se, se desbanece como galleta, bueno igualmente sigamos con el nodo wrangle donde va estar lo importante 
 
 ---
 
@@ -76,7 +56,7 @@ removevalue(npts, @ptnum);
 vector aceleracion = {0,0,0};
 
 ```
-Primero haremos los controladores de la simulaicon y asi tambien de una vez un condicional que haga que toda la matrix cambie despues de cierto tiempo, y crearemos una lista la cual nos ayudara a calcular los 100 puntos mas cercanos tomando en cuenta la posicion de cada pounto y tambien la maxima distancia, la idea es que no pase la maxima distancia dictada, y pondremos un vector de aceleracion en ceros,  Ya con eso listo, armamos el ciclo foreach para recorrer punto por punto a todos los vecinos que encontramos en la lista `npts`:
+Primero haremos los controladores de la simulaicon y asi tambien de una vez un condicional que haga que toda la matrix cambie despues de cierto tiempo, y crearemos una lista la cual nos ayudara a calcular los 100 puntos mas cercanos tomando en cuenta la posicion de cada pounto y tambien la maxima distancia, la idea es que no pase la maxima distancia dictada, y pondremos un vector de aceleracion en ceros,  Ya con eso listo, armamos el ciclo foreach para recorrer punto por punto a todos los vecinos que encontramos en la lista npts:
 ```c
 
 foreach(int npt; npts){
@@ -91,7 +71,7 @@ foreach(int npt; npts){
         direccion = normalize(direccion) * fit(dist, 0.0, mindist, -10.0, 0.0) * force_scl;
     }
 ```
-Dentro del ciclo, lo primero es traer con el nodo `point` el tipo de partícula que es el vecino (`ntype`) y su posición en el espacio (`npos`). Con eso calculamos el vector de dirección restando las posiciones (`npos - v@P`) y sacamos la distancia real entre los dos con la función length
+Dentro del ciclo, lo primero es traer con el nodo point el tipo de partícula que es el vecino ntype y su posición en el espacio npos. Con eso calculamos el vector de dirección restando las posiciones (`npos - v@P`) y sacamos la distancia real entre los dos con la función length
 
 Luego metemos el condicional para manejar las fuerzas según qué tan cerca estén:
 
@@ -113,6 +93,30 @@ v@force += aceleracion;
 Si estan a una distancia normal (osea entre mindist y maxdist), usamos el else. Mapeamos esa distancia de 0 a 1 en `ramppos` para pasársela a la curva de la rampa `chramp('Shape')`, y la multiplicamos por la matriz usando `getcomp(parms, i@type, ntype)`. Así es como el programa sabe si mi tipo de particula se atrae o se repele con la del vecino segun el valor de la tabla 
 
 Toda esa direccion calculada se la vamos sumando a la variable de aceleracion en cada vuelta del ciclo. Al salir del `foreach`, simplemente le sumamos la aceleracion acumulada a la fuerza global con `v@force += aceleracion` para que el POP Solver mueva las partículas en la simulacion
+
+
+
+
+---
+
+
+### Matriz de Relaciones 4x4 
+Valores positivos representan atracción y valores negativos repulsión. Las filas indican la partícula que reacciona y las columnas el vecino que ejerce la fuerza).
+
+| Desde \ Hacia | Tipo 0 (Amarillo) | Tipo 1 (Verde) | Tipo 2 (Azul) | Tipo 3 (Rojo) |
+| :--- | :---: | :---: | :---: | :---: |
+| **Tipo 0 (Amarillo)** | `4.0` | `2.0` | `0.0` | `0.0` |
+| **Tipo 1 (Verde)** | `6.0` | `1.0` | `0.0` | `-3.0` |
+| **Tipo 2 (Azul)** | `1.0` | `0.0` | `2.0` | `-6.0` |
+| **Tipo 3 (Rojo)** | `1.0` | `0.0` | `-6.0` | `2.0` |
+
+### Parámetros Globales
+* **Distancia de Interacción ($R_{max}$):** `chf('Maximum_Distance')` $\approx 0.711$
+* **Radio de Repulsión Mínima ($R_{min}$):** `chf('Minimum_Distance')` $\approx 0.16$
+* **Fricción :** ` $\approx 0.08$
+* **Fuerza Escalar:** `chf('Force_Scale')`  $\approx 1$
+* **Tiempo de Cambio:** `chf('Switch_Tiempo')` $\ 1 \text{s}$
+* **Distribución Inicial:** Concentrada en una esfera densa (representando el Planeta Tierra).
 
 
 ---
