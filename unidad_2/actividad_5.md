@@ -140,12 +140,12 @@ Para mejorar el consumo de recursos de Houdini, descubri que el problema era que
 
 | Criterio | Peso | Valoracion (%) | Aporte | Evidencia / Sustento |
 | :--- | :---: | :---: | :---: | :--- |
-| **Intencion clara y perceptible** | 20% | 70% | 14.0% | Se evidencia en la tension entre el Tipo 1 y Tipo 3 visible en la rutina de movimiento y deformacion de la masa. |
-| **Justificacion de parametros y matriz** | 25% | 80% | 20.0% | Cada valor de la matriz tiene un proposito documentado en la seccion de parametros de esta bitacora. |
-| **Comprension tecnica del sistema** | 20% | 100% | 20.0% | Implementacion y control de posicion, velocidad, aceleracion y distancias en el codigo VEX dentro del POP Wrangle. |
-| **Variaciones con identidad reconocible** | 15% | 90% | 13.5% | Distintas semillas generan patrones unicos pero con la misma firma de movimiento y dinamica de escape. |
+| **Intencion clara y perceptible** | 20% | 70% | 14.0% | Se evidencia en la tension entre el Tipo 1 y Tipo 3 visible en la rutina de movimiento y deformacion de la masa |
+| **Justificacion de parametros y matriz** | 25% | 80% | 20.0% | Cada valor de la matriz tiene un proposito documentado en la seccion de parametros de esta bitacora |
+| **Comprension tecnica del sistema** | 20% | 100% | 20.0% | Implementacion y control de posicion, velocidad, aceleracion y distancias en el codigo VEX dentro del POP Wrangle|
+| **Variaciones con identidad reconocible** | 15% | 90% | 13.5% | Distintas semillas generan patrones unicos pero con la misma firma de movimiento y dinamica de escape, aunque se debe para la simulacion modificiar un poco el proyecto, no es en tiempo real |
 | **Experimentacion y descartes** | 10% | 80% | 8.0% | Documentados los intentos fallidos de desvanecimiento por falta de friccion y el ajuste del POP Drag. |
-| **Distincion entre lo diseñado y emergente** | 10% | 90% | 9.0% | Claridad entre las ecuaciones base en VEX y las estructuras de gusano/nave que se forman al intentar escapar. |
+| **Distincion entre lo diseñado y emergente** | 10% | 90% | 9.0% | Claridad entre las ecuaciones base en VEX y las estructuras de gusano/nave que se forman al intentar escapar|
 | **TOTAL** | **100%** | | **84.5%** | **Nota Propuesta: 4.2 / 5.0** |
 
 ---
