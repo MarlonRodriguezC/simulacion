@@ -90,9 +90,9 @@ v@force += aceleracion;
 ```
 
 
-Si estan a una distancia normal (osea entre mindist y maxdist), usamos el else. Mapeamos esa distancia de 0 a 1 en `ramppos` para pasársela a la curva de la rampa `chramp('Shape')`, y la multiplicamos por la matriz usando `getcomp(parms, i@type, ntype)`. Así es como el programa sabe si mi tipo de particula se atrae o se repele con la del vecino segun el valor de la tabla 
+Si estan a una distancia normal (osea entre mindist y maxdist), usamos el else. Mapeamos esa distancia de 0 a 1 en ramppos para pasársela a la curva de la rampa chramp('Shape'), y la multiplicamos por la matriz usando `getcomp(parms, i@type, ntype)`. Asi es como el programa sabe si mi tipo de particula se atrae o se repele con la del vecino segun el valor de la tabla 
 
-Toda esa direccion calculada se la vamos sumando a la variable de aceleracion en cada vuelta del ciclo. Al salir del `foreach`, simplemente le sumamos la aceleracion acumulada a la fuerza global con `v@force += aceleracion` para que el POP Solver mueva las partículas en la simulacion
+Toda esa direccion calculada se la vamos sumando a la variable de aceleracion en cada vuelta del ciclo. Al salir del `foreach`, simplemente le sumamos la aceleracion acumulada a la fuerza global con v@force += aceleracion para que el POP Solver mueva las partículas en la simulacion
 
 
 
@@ -111,7 +111,7 @@ Valores positivos representan atracción y valores negativos repulsión. Las fil
 | **Tipo 3 (Rojo)** | `1.0` | `0.0` | `-6.0` | `2.0` |
 
 ### Parámetros Globales
-* **Distancia de Interacción ($R_{max}$):** `chf('Maximum_Distance')` $\approx 0.711$
+* **Distancia de Interaccion ($R_{max}$):** `chf('Maximum_Distance')` $\approx 0.711$
 * **Radio de Repulsión Mínima ($R_{min}$):** `chf('Minimum_Distance')` $\approx 0.16$
 * **Fricción :** ` $\approx 0.08$
 * **Fuerza Escalar:** `chf('Force_Scale')`  $\approx 1$
