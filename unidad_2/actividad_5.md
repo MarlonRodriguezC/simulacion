@@ -120,10 +120,10 @@ Valores positivos representan atracción y valores negativos repulsión. Las fil
 
 ---
 ### Cambios y dificultades del proyecto
+
 Este proyecto fue algo retador para mi, ya que aunque logre hacer el particle life en 3d, el resultado que tenia planeado tuve que hacer diferentes versiones y ajustar los numeros de la matrix a masomenos lo que queria que ocurriese.
 Algo que creo que se deberia mejorar es el uso de recursos del programa, sigo creyendo que estoy consumiendo mas de los necesarios  con el codigo ya que por primera vez si vi a houdini esperanod como 2 o 3 minutos en cargar el proyecto en si 
 ---
-
 ##  Justificación de Decisiones de Diseño
 
 * Seleccioné **[Parámetro / Cantidad / Tipo]** porque quiero hacer perceptible **[Intención visual/física]**. Espero que produzca **[Resultado directo en pantalla]**.
