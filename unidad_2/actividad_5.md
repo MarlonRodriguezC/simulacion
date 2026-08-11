@@ -1,13 +1,18 @@
 # Bitácora Actividad 05: Reto de Diseño – Una Contradicción en Movimiento
 
 **Proyecto:** Abandonar el planeta tierra
+
+
 **Herramienta:** Houdini
 
 ---
 
 ##  Intención y Contradicción
 
-Quiero explorar la tensión entre la necesidad   de los recursos  naturales  y el sentimiento de exploracion
+Quiero explorar la tension entre la necesidad de los recursos naturales y el sentimiento de exploracion.
+
+Manifestacion en el sistema:
+Las particulas crearan un planeta denso donde intentaran vivir. La contradiccion esta en que las particulas que buscan explorar se atraen al centro para alimentarse, pero se repelen entre si al estar muy cerca. Esto genera una presion interna que termina deformando el planeta y expulsando grupos de particulas en forma de gusanos o naves. Al salir de la zona de influencia de los recursos, pierden la fuerza de atraccion y quedan vagando solas en el espacio.
 
 ### Manifestación en el sistema
 Las particulas crearan una especie de planeta tierra en el cual viviran hasta cierto punto, despues de cierto tiempo el sistema de particulas cambiara sus valores haciendo que unas particulas exploten y la mision de las que quedan en el planeta tierra sera intentar abandonar todo ese espacio donde estan las particulas repartidas, crearan una especie de gusano/nave con ellas mismas pero al abandonar la zona se quedaran sin recursos ni motivo por el cual seguir moviendose, quedando vagas en el espacio
@@ -46,9 +51,9 @@ float force_scl = chf('Force_Scale');
 float switch_time = chf('Switch_Tiempo'); 
 
 // Disparador de cambio de matriz 
-if (@Time >= switch_time) {
-    parms *= -1.0; 
-}
+//if (@Time >= switch_time) {
+//   parms *= -1.0; 
+//}
 
 int npts[] = nearpoints(0, v@P, maxdist, 100);
 removevalue(npts, @ptnum);
@@ -110,40 +115,37 @@ Valores positivos representan atracción y valores negativos repulsión. Las fil
 | **Tipo 2 (Azul)** | `1.0` | `0.0` | `2.0` | `-6.0` |
 | **Tipo 3 (Rojo)** | `1.0` | `0.0` | `-6.0` | `2.0` |
 
-### Parámetros Globales
-* **Distancia de Interaccion ($R_{max}$):** `chf('Maximum_Distance')` $\approx 0.711$
-* **Radio de Repulsión Mínima ($R_{min}$):** `chf('Minimum_Distance')` $\approx 0.16$
-* **Fricción :** ` $\approx 0.08$
-* **Fuerza Escalar:** `chf('Force_Scale')`  $\approx 1$
-* **Tiempo de Cambio:** `chf('Switch_Tiempo')` $\ 1 \text{s}$
+Justificacion de poblaciones y parametros:
+cada tipo de particula esta dividido en mismas cantidades, esto con el proposito de tener un balance a la hora de hacer la simulacion y notar mas facil el comportamiento de todas
+-Tipo 0 (Amarillo - 5000 particulas) 
+-Tipo 1 (Verde - 5000 particulas)
+-Tipo 2 (Azul - 5000 particulas)
+-Tipo 3 (Rojo - 5000 particulas)
+
+Parametros globales:
+Distancia Maxima ($R_{max} = 0.711$): Seleccioné 0.711 porque quiero hacer perceptible el limite del espacio. Espero que cuando las particulas se alejen mas de esto, queden flotando sin interactuar.Distancia Minima ($R_{min} = 0.16$): Seleccioné 0.16 porque quiero hacer perceptible el volumen fisico. Espero que evite que todas las particulas colapsen en un solo punto.Friccion (0.08): Seleccioné 0.08 en el POP Drag porque quiero hacer perceptible un medio fluido. Espero que controle las velocidades brutas para que no salgan disparadas.
 
 
 ---
 ### Cambios y dificultades del proyecto
 
 Este proyecto fue algo retador para mi, ya que aunque logre hacer el particle life en 3d, el resultado que tenia planeado tuve que hacer diferentes versiones y ajustar los numeros de la matrix a masomenos lo que queria que ocurriese.
-Algo que creo que se deberia mejorar es el uso de recursos del programa, sigo creyendo que estoy consumiendo mas de los necesarios  con el codigo ya que por primera vez si vi a houdini esperanod como 2 o 3 minutos en cargar el proyecto en si 
----
-##  Justificación de Decisiones de Diseño
-
-* Seleccioné **[Parámetro / Cantidad / Tipo]** porque quiero hacer perceptible **[Intención visual/física]**. Espero que produzca **[Resultado directo en pantalla]**.
-* Seleccioné la relación asimétrica **[Tipo A vs Tipo B]** porque quiero hacer perceptible **[la desigualdad o tensión]**. Espero que produzca **[un flujo constante sin llegar nunca al equilibrio]**.
-* Seleccioné un nivel de fricción de **[Valor]** porque quiero hacer perceptible **[la inercia / la fluidez]**. Espero que produzca **[agrupaciones orgánicas en lugar de explosiones erráticas]**.
-
-
+Para mejorar el consumo de recursos de Houdini, descubri que el problema era que el nodo nearpoints() estaba buscando 100 vecinos en cada fotograma para cada particula. Para optimizarlo voy a bajar el limite a 40 o 50 vecinos maximo, y desactivare la visualizacion de esferas pesadas antes de simular para que no se me quede congelado 2 o 3 minutos cargando.
 
 ---
+
+
 
 ## Autoevaluación Sustentada
 
-| Criterio | Peso | Valoración (%) | Aporte | Evidencia / Sustento |
+| Criterio | Peso | Valoracion (%) | Aporte | Evidencia / Sustento |
 | :--- | :---: | :---: | :---: | :--- |
-| **Intención clara y perceptible** | 20% | `[0-100]%` | `[Aporte]` | Se evidencia en la tensión entre [Tipo A] y [Tipo B] visible en la rutina de movimiento. |
-| **Justificación de parámetros y matriz** | 25% | `[0-100]%` | `[Aporte]` | Cada valor de la matriz tiene un propósito documentado en la sección 3 de esta bitácora. |
-| **Comprensión técnica del sistema** | 20% | `[0-100]%` | `[Aporte]` | Implementación y control de posición, velocidad, aceleración y distancias en el código VEX/Script. |
-| **Variaciones con identidad reconocible** | 15% | `[0-100]%` | `[Aporte]` | Distintas semillas generan patrones únicos pero con la misma firma de movimiento. |
-| **Experimentación y descartes** | 10% | `[0-100]%` | `[Aporte]` | Documentados los intentos fallidos de cristalización y exceso de velocidad en la sección 4. |
-| **Distinción entre lo diseñado y emergente** | 10% | `[0-100]%` | `[Aporte]` | Claridad entre las ecuaciones base y las estructuras colaterales que se forman a largo plazo. |
-| **TOTAL** | **100%** | | **`[Suma]%`** | **Nota Propuesta:** `[Puntaje Total / 20]` / 5.0 |
+| **Intencion clara y perceptible** | 20% | 70% | 14.0% | Se evidencia en la tension entre el Tipo 1 y Tipo 3 visible en la rutina de movimiento y deformacion de la masa. |
+| **Justificacion de parametros y matriz** | 25% | 80% | 20.0% | Cada valor de la matriz tiene un proposito documentado en la seccion de parametros de esta bitacora. |
+| **Comprension tecnica del sistema** | 20% | 100% | 20.0% | Implementacion y control de posicion, velocidad, aceleracion y distancias en el codigo VEX dentro del POP Wrangle. |
+| **Variaciones con identidad reconocible** | 15% | 90% | 13.5% | Distintas semillas generan patrones unicos pero con la misma firma de movimiento y dinamica de escape. |
+| **Experimentacion y descartes** | 10% | 80% | 8.0% | Documentados los intentos fallidos de desvanecimiento por falta de friccion y el ajuste del POP Drag. |
+| **Distincion entre lo diseñado y emergente** | 10% | 90% | 9.0% | Claridad entre las ecuaciones base en VEX y las estructuras de gusano/nave que se forman al intentar escapar. |
+| **TOTAL** | **100%** | | **84.5%** | **Nota Propuesta: 4.2 / 5.0** |
 
 ---
