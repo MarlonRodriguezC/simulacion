@@ -4,7 +4,7 @@
 
 **Proyecto:** *Simulador e Instrumento de Campos de Fuerza Interactivos*
 
-**Herramientas:** *p5.js 
+**Herramientas:** WebGPU
 
 ---
 
@@ -37,16 +37,15 @@ Antes de implementar el instrumento final, se realizo un analisis comparativo en
 
 ## 3. Mapa del Sistema
 
-Estructura y arquitectura del codigo que componen la simulación:
+Estructura y arquitectura del código que componen la simulación, mapeado a la estructura de archivos del proyecto (`src/`):
 
 | Componente / Capa | Descripción Funcional | Archivo(s) donde se encuentra |
 | :--- | :--- | :--- |
-| **Estado (State)** | Manejo de posiciones ($\vec{P}$), velocidades ($\vec{V}$), aceleraciones ($\vec{A}$), masa y vida útil de cada partícula. | `Particle.js` / `System.js` |
-| **Fuerzas (Forces)** | Cálculo vectorial de atracciones, repulsiones, viento (+X), fricción y campos de vórtice. | `Forces.js` |
-| **Integración (Integration)** | Algoritmo de integración Euler/Verlet para acumulación de fuerzas: $\vec{A} = \frac{\vec{F}}{m}$, $\vec{V} = \vec{V} + \vec{A}\cdot\Delta t$, $\vec{P} = \vec{P} + \vec{V}\cdot\Delta t$. | `Particle.js` |
-| **Render** | Dibujado y representación gráfica de las partículas en el canvas p5.js (`points` / `lines` / alfa dinámico). | `sketch.js` / `Renderer.js` |
-| **Controles (Inputs)** | Mapeo de atajos de teclado (`Q`, `E`, `X`, `L`) y coordenadas del cursor (`mouseX`, `mouseY`). | `sketch.js` |
-
+| **Estado (State)** | Manejo de 131,072 partículas instanciadas en WebGPU, controlando sus posiciones (`positionBuffer`) y velocidades (`velocityBuffer`) mediante TSL (Three.js Shading Language). | `src/simulation/createSimulation.js` |
+| **Fuerzas (Forces)** | Cálculo vectorial en Compute Shader de viento, fuerza radial (atracción/repulsión), vórtice tangencial, turbulencia continua (jitter) y fricción (drag). | `src/simulation/createSimulation.js` en `updateParticles` |
+| **Integración (Integration)** | Integración de fuerzas y velocidad usando el método de Euler ($\vec{v} += \vec{F} \cdot dt$, $\vec{p} += \vec{v} \cdot dt$), límite máximo de velocidad y lógica de rebote dinámico en límite esférico con impulso interior. | `src/simulation/createSimulation.js` en `updateParticles` |
+| **Render** | Renderizado grafico estilizado con THREE.SpriteNodeMaterial y AdditiveBlending, aplicando mapas de opacidad retro a partir de la textura ASCII generada dinamicamente en canvas 2D. | `src/simulation/createSimulation.js` / `src/simulation/asciiTexture.js` |
+| **Controles (Inputs)** | EL MAPEO de parametros uniformes que son enviados a la GPU, la interfaz de usuario en Modo LAB y lógica de eventos de teclado masiva (WASD, Q/E, X, Space y teclas O-N para la batería de efectos Lethal FX) y Raycaster para el cursor. | se utiliza `src/main.js` / `src/simulation/parameters.js` AUNQUE `src/ui/labPanel.js` es el principal codigo de interfaz de los botones que aparecen en pantalla, ya la decoraccion esta en el archivo `styless.css` |
 ---
 
 ## 4. Ficha de Fuerzas y Modificación Experimental
