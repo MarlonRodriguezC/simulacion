@@ -4,7 +4,7 @@
 
 ## 1. Instrumento Funcional y Publicado
 
-- **URL Pública:** [https://juanferfranco.github.io/simulacion-2026-20/units/unit3/](https://juanferfranco.github.io/simulacion-2026-20/units/unit3/)
+- **URL Pública:** [https://juanferfranco.github.io/simulacion-2026-20/units/unit3/](https://juanferfranco.github.io/simulacion-2026-20/units/unit3/) (no funciona la mia aun, asi que Puedes ver la demostración en vivo en este [Video de YouTube](https://youtu.be/Ge2GJpJwvb8)._
 - **Modo LAB:** Modo con interfaz gráfica para ajustar parámetros.
 - **Modo PERFORMANCE:** Modo limpio sin controles en pantalla, enfocado en la interpretación en vivo con el teclado y el ratón.
 
