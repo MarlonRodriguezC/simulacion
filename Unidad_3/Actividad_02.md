@@ -91,5 +91,5 @@ $$\vec{F}_{total} = \vec{F}_{viento} + \vec{F}_{radial} + \vec{F}_{vórtice} + \
 | **Diseño de fuerzas e intención** | 20% | Las fuerzas y sus parámetros hacen perceptible una intención; el comportamiento surge de la dinámica y no de trayectorias previamente dibujadas. | **85%** | 17.0% | [Sección 3. Ficha de Fuerzas](#3-ficha-de-fuerzas) |
 | **Instrumento, score e interpretación** | 15% | El score conecta la escucha con decisiones; escogí pocos controles expresivos y puedo conducir el sistema en vivo sin automatismos. | **90%** | 13.5% | [Sección 5. Score Visual](#5-score-visual-interpretación-en-vivo-con-lesalpx) |
 | **Experimentación y criterio frente a la IA** | 10% | Comparé alternativas, registré hallazgos y descartes, corregí propuestas de IA y puedo justificar por qué conservé la versión presentada. | **85%** | 8.5% | [Sección 6. Bitácora de IA](#6-bitácora-de-ia) |
-| **Entrega técnica y documentación** | 5% | La URL pública abre; la bitácora permite verificar el proceso. | **90%** | 4.5% | [Sección 1. Instrumento Funcional y Publicado](#1-instrumento-funcional-y-publicado) |
-| **TOTAL PUNTOS** | **100%** | | | **88.0%** | **Nota Propuesta: 4.4 / 5.0** |
+| **Entrega técnica y documentación** | 5% | La URL pública abre; la bitácora permite verificar el proceso. | **90%** | 0% | [Sección 1. Instrumento Funcional y Publicado](#1-instrumento-funcional-y-publicado) |
+| **TOTAL PUNTOS** | **100%** | | | **88.0%** | **Nota Propuesta: 4.2 / 5.0** |
