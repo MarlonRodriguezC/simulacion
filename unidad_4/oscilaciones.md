@@ -2,15 +2,21 @@
 
 ---
 
-## 1. Proyecto Funcional y Publicado
+##  Proyecto Funcional y Publicado
 
 - **URL Pública:** [https://editor.p5js.org/mugsky/sketches/NWV-d32Ek) 
 
 - **Modo LAB / Visor HUD:** Pantalla interactiva en tiempo real que simula la interfaz del casco de buzo, permitiendo monitorear el Faro de Sincronía LED (`DISPERSO`, `ACOPLÁNDOSE`, `UNÍSONO`), controlar el acoplamiento y ejecutar la percusión por disparo.
 
 ---
+##  Referencia
+- Mi proposito es crear un minijuegoa de cazeria  parecido a los primeros shooters, como doom o wolfenstein, pero de una forma submarina tomando en cuenta que los peces se pueden juntar y alinearse y seguir el mismo patron de nado
+![nodos](../assets/unidad_4/doom_referencia.jpeg)
 
-## 2. Ficha del Modelo de Kuramoto
+![nodos](../assets/unidad_4/wolfenstein_referencia.png)
+
+---
+##  Ficha del Modelo de Kuramoto
 
 ### Ecuación General Utilizada
 $$\frac{d\theta_i}{dt} = \omega_i + \frac{K}{N} \sum_{j=1}^{N} \sin(\theta_j - \theta_i)$$
@@ -33,7 +39,7 @@ $$\frac{d\theta_i}{dt} = \omega_i + \frac{K}{N} \sum_{j=1}^{N} \sin(\theta_j - \
 
 ---
 
-## 3. Registro de Pruebas y Comportamientos Emergentes
+##  Registro de Pruebas y Comportamientos Emergentes
 
 | Prueba | Configuración de $K$ y Entorno | Resultado Observado |
 | :--- | :--- | :--- |
@@ -44,7 +50,7 @@ $$\frac{d\theta_i}{dt} = \omega_i + \frac{K}{N} \sum_{j=1}^{N} \sin(\theta_j - \
 
 ---
 
-## 4. Score y Experiencia Performativa
+##  Score y Experiencia Performativa
 
 | Estado del Sistema | Intención Auditiva / Visual | Acciones del Performer |
 | :--- | :--- | :--- |
@@ -54,7 +60,7 @@ $$\frac{d\theta_i}{dt} = \omega_i + \frac{K}{N} \sum_{j=1}^{N} \sin(\theta_j - \
 
 ---
 
-## 5. Bitácora de Uso y Criterio frente a IA
+##  Bitácora de Uso y Criterio frente a IA
 
 | Prompt / Consulta a IA | Sugerencia Recibida de la IA | Decisión y Corrección Aplicada | Razón de la Decisión |
 | :--- | :--- | :--- | :--- |
@@ -64,7 +70,7 @@ $$\frac{d\theta_i}{dt} = \omega_i + \frac{K}{N} \sum_{j=1}^{N} \sin(\theta_j - \
 
 ---
 
-## 5. Autoevaluación Ponderada
+##  Autoevaluación Ponderada
 
 | Criterio | Peso | Qué demuestra la evidencia | Valoración (0-100) | Aporte Calculado | 
 | :--- | :---: | :--- | :---: | :---: | :--- |
