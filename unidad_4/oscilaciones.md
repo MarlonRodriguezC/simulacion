@@ -66,10 +66,10 @@ $$\frac{d\theta_i}{dt} = \omega_i + \frac{K}{N} \sum_{j=1}^{N} \sin(\theta_j - \
 
 ## 5. Autoevaluación Ponderada
 
-| Criterio | Peso | Qué demuestra la evidencia | Valoración (0-100) | Aporte Calculado | Evidencia / Sustento |
+| Criterio | Peso | Qué demuestra la evidencia | Valoración (0-100) | Aporte Calculado | 
 | :--- | :---: | :--- | :---: | :---: | :--- |
-| **Requisitos Mínimos Cumplidos** | 25% | 8 agentes móviles, 4 personalidades audiovisuales, $K$ modificable en tiempo real, 2 formas de interacción performativa y comunicación de 3 estados del colectivo. | **100%** | 25.0% | [Sección 1](#1-proyecto-funcional-y-publicado) y [Sección 2](#2-mapa-del-sistema) |
-| **Explicación de Variables del Modelo** | 25% | Explicación formal y aplicada de $\theta_i$, $\omega_i$, $K$, $N$ y $\sin(\theta_j - \theta_i)$ dentro del contexto del comportamiento de los peces abisales. | **100%** | 25.0% | [Sección 3. Ficha del Modelo de Kuramoto](#3-ficha-del-modelo-de-kuramoto) |
-| **Explicación del Comportamiento Emergente** | 25% | Sustento de cómo las variaciones de $K$ producen las transiciones entre desorden, acoplamiento y unísono visual y sonoro. | **100%** | 25.0% | [Sección 4. Registro de Pruebas](#4-registro-de-pruebas-y-comportamientos-emergentes) |
-| **Demostración de Objetivos de la Unidad** | 25% | Integración de Kuramoto como instrumento audiovisual performativo no sustituible por temporizadores o secuenciadores tradicionales. | **100%** | 25.0% | [Sección 5](#5-score-y-experiencia-performativa) y [Sección 6](#6-bitácora-de-uso-y-criterio-frente-a-ia) |
+| **Requisitos Mínimos Cumplidos** | 25% | 8 agentes móviles, 4 personalidades audiovisuales, $K$ modificable en tiempo real, 2 formas de interacción performativa y comunicación de 3 estados del colectivo. | **100%** | 25.0% | 
+| **Explicación de Variables del Modelo** | 25% | Explicación formal y aplicada de $\theta_i$, $\omega_i$, $K$, $N$ y $\sin(\theta_j - \theta_i)$ dentro del contexto del comportamiento de los peces abisales. | **100%** | 25.0% | 
+| **Explicación del Comportamiento Emergente** | 25% | Sustento de cómo las variaciones de $K$ producen las transiciones entre desorden, acoplamiento y unísono visual y sonoro. | **100%** | 25.0% | 
+| **Demostración de Objetivos de la Unidad** | 25% | Integración de Kuramoto como instrumento audiovisual performativo no sustituible por temporizadores o secuenciadores tradicionales. | **100%** | 25.0% | 
 | **TOTAL PUNTOS** | **100%** | | | **100.0%** | **Nota Propuesta: 5.0 / 5.0** |
