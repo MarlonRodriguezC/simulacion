@@ -46,14 +46,31 @@ $$\frac{d\theta_i}{dt} = \omega_i + \frac{K}{N} \sum_{j=1}^{N} \sin(\theta_j - \
 
 ## Registro de Pruebas y Comportamientos Emergentes
 
-| Prueba | Configuración y Entorno | Resultado Observado |
-| :--- | :--- | :--- |
-| **1. Acoplamiento Nulo ($K \to 0$)** | Movimiento continuo del buzo o disparos constantes. | **Desorden Total.** Los peces oscilan a su frecuencia natural $\omega_i$, las conexiones de fase se rompen, la bioluminiscencia titila descoordinada y los audios en bucle se detienen. |
-| **2. Transición Progresiva (Reposo)** | Buzo estático en el fondo ($Y = 220$) sin disparar. | **Organización Emergente.** $K$ incrementa gradualmente ($0\% \to 100\%$). Nacen clústeres rítmicos locales que contagian al grupo entero hasta nadar en unísono armónico. |
-| **3. Perturbación por Disparo y Daño** | Disparo de arpón sobre un pez del cardumen. | **Desagregación y Pánico.** $K$ se desploma. El pez impactado pierde HP, cambia a tono naranja, detiene su audio y huye acelerando abruptamente junto con los peces cercanos. |
-| **4. Alternancia de Paleta Visual** | Clic sobre el botón `CLR` en el módulo SISTEMA del HUD. | **Conmutación de Identidad.** El sistema cambia dinámicamente de `CLR: BASE` a `CLR: RGB`, generando tonos aleatorios únicos para cada pez sin romper la simulación de Kuramoto ni la sincro de audio. |
-| **5. Eliminación y Respawn Diferenciado** | Reducir la vida de un pez a $0\text{ HP}$. | **Contador de Bajas e Inserción.** Se incrementa la métrica `CAZADOS`. Si el pez es normal, recarga $+15\text{ O}_2$ y reaparece al instante por los bordes; si es sonoro, entra en un estado de espera de $3\text{ segundos}$ antes de reaparecer. |
+**1. Acoplamiento Nulo ($K \to 0$)**
+* **Descripción:** Movimiento continuo del buzo o disparos constantes.
+* **Comportamiento y Función en Código:** Desorden Total. Los peces oscilan a su frecuencia natural $\omega_i$, las conexiones de fase se rompen, la bioluminiscencia titila descoordinada y los audios en bucle se detienen. Esta prueba valida la lógica de perturbación en `draw()`, donde el movimiento del jugador o las llamadas a `recibirDano()` reducen el valor de $K$ a su punto mínimo (`0.01`).
 
+**2. Transición Progresiva en Reposo**
+* **Descripción:** Ocurre cuando dejo al buzo quieto en el fondo sin moverme ni disparar.
+* **Comportamiento y Función en Código:** El cardumen empieza a organizarse solo poco a poco. Al no hacer nada, la variable `kValue` va subiendo gradualmente hasta $0.45$. Los peces se van juntando en pequeños grupos rítmicos hasta que al final todos terminan nadando en perfecta sincronía. Esto lo controla la aceleración de cohesión y alineamiento dentro de `PezAbisal.update()`.
+
+**3. Perturbación por Disparo y Daño**
+* **Descripción:** Disparo de arpón directo a un pez dentro del cardumen.
+* **Comportamiento y Función en Código:** El pez impactado entra en pánico, cambia a color naranja, apaga su audio y sale disparado huyendo junto a los demás peces cercanos. Esta prueba demuestra la ejecución del método `asustarsePorDisparo()` y `recibirDano()`, aplicando una fuerza de repulsión inmediata y un bajón drástico de $K$ ($K_{\text{disruption}} = -0.25$).
+
+![Perturbación por Disparo](../assets/unidad_4/evidencia_2.png)
+
+**4. Alternancia de Paleta Visual (Modo RGB)**
+* **Descripción:** Activación del botón de color en la interfaz del HUD.
+* **Comportamiento y Función en Código:** Le asigna colores totalmente aleatorios a cada pez para cambiar la estética del juego al instante. Esta prueba valida la variable global `modoColorAleatorio` y la función `generarNuevoColor()` dentro de `PezAbisal`, cambiando la paleta visual sin romper la simulación matemática de Kuramoto ni la física del nado.
+
+![Paleta de Colores RGB](../assets/unidad_4/evidencia_4.png)
+
+**5. Estilo Sonoro y Ensamble Polifónico**
+* **Descripción:** Interacción y sincronización con los 4 peces sonoros del mapa.
+* **Comportamiento y Función en Código:** Cada pez especial tiene asignado un instrumento diferente (Batería, Guitarra, Piano y Sintetizador) que puede sonar individualmente al pasar el mouse sobre él. Sin embargo, cuando los 4 peces sonoros se unen en el agua, sus audios en bucle se activan al mismo tiempo para formar una sola melodía completa. Esto se logra mediante la función `verificarCuatroSonorosConectados()`, la cual ejecuta un algoritmo BFS en tiempo real para verificar que los 4 estén interconectados.
+
+![Ensamble Sonoro Conectado](../assets/unidad_4/evidencia_3.png)
 ---
 
 ## Score y Experiencia Performativa
