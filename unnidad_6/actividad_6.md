@@ -78,12 +78,16 @@ El instrumento cuenta con 6 modos de funcionamiento que combinan los motores fí
 | **`Mantener Q`**| Reversa de Agentes | Invierte instantáneamente los vectores de velocidad de todas las partículas. |
 | **`Mantener V`**| Vórtice | Atrae a los agentes a una espiral logarítmica central. |
 | **`G`** | Glitch RGB | Desfase cromático analógico en las capas de color. |
-| **`L`** | Inversión de Color | Alterna entre fondo negro neón y fondo blanco de alto contraste. |
+| **`L`** | Inversión de Color | Alterna entre fondo negro neón y fondo blanco de alto contraste. | 
 | **`P` / `ENTER`**| Pantalla Completa | Activa/desactiva el modo fullscreen sin interrupciones. |
 | **`H`** | Ocultar HUD | Muestra u oculta el menú flotante y el puntero del mouse. |
 | **`A / Z`** | Ángulo $SA$ | Alterna entre redes muy ramificadas (`A`) o hilos rectos (`Z`). |
 | **`S / X`** | Distancia $SO$ | Alterna entre autopistas gruesas (`S`) o manchas locales (`X`). |
 | **`Mouse`** | Atracción Manual | Mantiene presionado para atraer agentes a la posición del cursor. |
+
+La idea principal es que usando el flocking y el flow field y la opcion 6 de supernova se use en las partes donde no hay un acordeon  y la physarum y el physarum coon flocking y flow field
+sean solo para el acordeon, asi el espacio no mas para cuando esta sonando el "tambor" o "cuerda" (no se como llamarlo)  que avisa el acordeon voy a usar el espacio para hace run flash, 
+ya el vortice sera usado junto al espacio momentos antes del acordeon, y la Q y la G actuaran de fomra glish, una hara que los agentes den reversa y se quden unos segundos quietos, y la otra hacer que los agentes se sientan como si estuviesen vivos, por ultimo descarte el uso de la inversion de color ya que no solo era poco llamativo, si no que no rompia un poco con la estetica ya pensada
 
 ---
 
