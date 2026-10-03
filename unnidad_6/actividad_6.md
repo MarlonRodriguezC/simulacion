@@ -4,28 +4,30 @@
 **Link del proyecto:** https://editor.p5js.org/mugsky/sketches/3au_23V7T  
 ---
 
-## 1. Concepto y Visión Visual
+## 1. Concepto y Vision Visual
 
-Este proyecto es un **instrumento visual interactivo en tiempo real** diseñado para ser interpretado en vivo como acompañamiento a piezas de música electrónica, específicamente configurado para el tema clásico *Stereo Love* (Edward Maya & Vika Jigulina).
+Este proyecto es un **instrumento visual interactivo en tiempo real** diseñado para ser interpretado en vivo como acompañamiento a piezas de música electrónica, específicamente configurado para el tema clásico *Stereo Love* (Edward Maya & Vika Jigulina), ya que el tema tiene sus momentos de tranquilidad y de fuerza en la cancion, aparte que su diseño en la portada es sencillo, tiene colores azules y rosados con un poco de negro, por tanto la decoracion de las particuals no conllevara tanto trabajo
 
-El sistema simula un ecosistema de agentes autónomos que navegan entre tres regímenes de movimiento fundamentados en modelos físicos y biológicos:
+El sistema simula un ecosistema de agentes autónomos que navegan entre tres regímenes de movimiento fundamentados en modelos fisicos y biologicos pedidos :
 1. **Comportamiento Fisárico (Physarum polycephalum):** Formación orgánica de venas y redes de transporte mediante deposición y lectura de un mapa de feromonas/rastros.
 2. **Comportamientos Colectivos de Reynolds (Flocking / Steering Behaviors):** Dinámicas de enjambre guiadas por fuerzas de separación, alineación y cohesión.
 3. **Campos de Vectores y Ruido Simplex/Perlin (Flow Fields):** Navegación fluida guiada por campos continuos de fuerzas.
+
+
 
 ---
 
 ## 2. Marco Teórico y Referencias
 
 ### Referencia Principal del Modelo Physarum
-La arquitectura base de los agentes y la lectura de sensores ambientales está fuertemente inspirada en el tutorial de **Patt Vira** (*p5.js Coding Tutorial | Slime Molds (Physarum)*, disponible en [YouTube](https://www.youtube.com/watch?v=VyXxSNcgDtg)), fundamentado en el modelo de Jeff Jones (2010) y el trabajo visual de Sage Jensen.
+La arquitectura base de los agentes y la lectura de sensores ambientales está fuertemente inspirada en el tutorial de **Patt Vira** (*p5.js Coding Tutorial | Slime Molds (Physarum)*, disponible en [YouTube](https://www.youtube.com/watch?v=VyXxSNcgDtg)),
 
 ### A. Algoritmo Physarum (Venas Orgánicas)
 Basado en el modelo de Jones (2010), cada agente posee tres sensores ubicados al frente ($S_F$), a la izquierda ($S_L$) y a la derecha ($S_R$) definidos por una distancia de offset ($SO$) y un ángulo de apertura ($SA$).
 
 $$\vec{x}_{\text{sensor}} = \vec{x}_{\text{agente}} + SO \cdot \begin{pmatrix} \cos(\theta + \alpha) \\ \sin(\theta + \alpha) \end{pmatrix}$$
 
-El agente lee la densidad luminosa del buffer de píxeles (`gfx.pixels`) en el canal rojo y reorienta su ángulo de navegación $\theta$ hacia la mayor concentración de rastro. Posteriormente, deposita color en la textura, la cual se evapora en cada cuadro aplicando un factor de decaimiento:
+El agente lee la densidad luminosa del buffer de pixeles (`gfx.pixels`) en el canal rojo y reorienta su ángulo de navegación $\theta$ hacia la mayor concentración de rastro. Posteriormente, deposita color en la textura, la cual se evapora en cada cuadro aplicando un factor de decaimiento:
 
 $$I_{t+1}(x,y) = I_t(x,y) \cdot \lambda \quad (\text{donde } \lambda \approx 0.92)$$
 
@@ -86,4 +88,16 @@ El instrumento cuenta con 6 modos de funcionamiento que combinan los motores fí
 ---
 
 ## 5. Autoevaluación y Conclusiones
+
+| Criterio de Evaluación | Estado | Justificación |
+| :--- | :---: | :--- |
+| **Cumplimiento del encargo**<br>_Tecnología web, tiempo real e interpretación de la pieza elegida._ | **SÍ CUMPLE** | Desarrollado en **p5.js** (Web), corre a **60 FPS** estables y los controles están mapeados específicamente para los momentos clave de ***Stereo Love***. |
+| **Comprensión y verificación**<br>_Explicar el sistema, percepción/acción de agentes y modificar parámetros._ | **SÍ CUMPLE** | Dominas la trigonometría de los **3 sensores** ($S_F, S_L, S_R$), la lectura del canal de color en `pixels[]` y los cambios en vivo de ángulo ($SA$) con `A/Z` y distancia ($SO$) con `S/X`. |
+| **Diseño e intención**<br>_Justificación de comportamientos y relación con la música._ | **SÍ CUMPLE** | Integras **6 modos híbridos** (Physarum + Flocking + Flow Field) donde cada textura responde al ritmo: venas orgánicas para el acordeón y enjambres/vórtices para los drops. |
+| **Interpretación humana**<br>_Score y controles para conducir el sistema en vivo._ | **SÍ CUMPLE** | Tienes un kit completo de VJing (Strobe con `ESPACIO`, estallido con `C`, atracción con `D`, reversa con `Q`, glitch con `G` e inversión con `L`) alineado con la pauta temporal de la canción. |
+
+Durante la interpretación en tiempo real se identificó un caso limite en la interacción por teclado: la disminucion acumulativa del parametro de velocidad maxima, maxSpeed al presionar de forma iterativa la tecla `X` redujo el limite de velocidad global a un valor casi nulo ($v_{\text{max}} = 0.5 \text{ px/frame}$). Esto provocó un estancamiento en la actualizacion cinematica de los agentes, haciendo que las particulas quedaran estaticas en pantalla.
+
+**Corrección de Software:**
+se cambio la escala de ajuste con un umbral inferior de seguridad ($v_{\text{min}} = 1.5$), que garantizaa que la modulación sensorial en vivo no afecte la velocidad operativa monima del sistema de particulas.
 
